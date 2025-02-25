@@ -4,6 +4,8 @@
 
 package frc.robot;
 
+import com.pathplanner.lib.config.PIDConstants;
+
 import edu.wpi.first.math.controller.SimpleMotorFeedforward;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.util.Units;
@@ -31,7 +33,7 @@ public class Constants {
    
     public static final double MAX_OUTPUT = 0.3;
 
-    public static final boolean SQUARED_INPUTS = true; // at SVR, this was false
+    public static final boolean SQUARED_INPUTS = true; // at 2024 SVR, this was false
 
     public static final double WHEEL_RADIUS = 2.0; // inches, need to double check
     public static final double DRIVE_GEAR_RATIO = 8.14;
@@ -73,20 +75,13 @@ public class Constants {
     public static final double FL_OFFSET_ROTATIONS = 0.5406;
     public static final double BR_OFFSET_ROTATIONS = 0.9320;
     public static final double BL_OFFSET_ROTATIONS = 0.2593;
-
-    public static final double APOTHEM = Units.inchesToMeters(10.625); // NEED TO UPDATE FOR 2035
-    public static final Translation2d FR_LOCATION = new Translation2d(APOTHEM, -APOTHEM);
-    public static final Translation2d FL_LOCATION = new Translation2d(APOTHEM, APOTHEM);
-    public static final Translation2d BR_LOCATION = new Translation2d(-APOTHEM, -APOTHEM);
-    public static final Translation2d BL_LOCATION = new Translation2d(-APOTHEM, APOTHEM);
-
-    public static final HolonomicPathFollowerConfig PATH_FOLLOWER_CONFIG = 
-        new HolonomicPathFollowerConfig(
-            new PIDConstants(5.0,0,0),
-            new PIDConstants(5.0, 0, 0),
-            3.5,
-            0.4445,
-            new ReplanningConfig());
-
+    
+    public static final double APOTHEM_1 = Units.inchesToMeters(0);
+    public static final double APOTHEM_2 = Units.inchesToMeters(0); // NEED TO UPDATE FOR 2025
+    public static final Translation2d FR_LOCATION = new Translation2d(APOTHEM_1, -APOTHEM_2);
+    public static final Translation2d FL_LOCATION = new Translation2d(APOTHEM_1, APOTHEM_2);
+    public static final Translation2d BR_LOCATION = new Translation2d(-APOTHEM_1, -APOTHEM_2);
+    public static final Translation2d BL_LOCATION = new Translation2d(-APOTHEM_1, APOTHEM_2);
     }
+
 }
